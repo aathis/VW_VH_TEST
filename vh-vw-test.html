@@ -4,32 +4,100 @@
  		<meta name="viewport" content="width=device-width, initial-scale=1"> 
 	 	<title> VW VH Test </title>
 	 	<style type="text/css">
-	 		#pixel {
-			    font-size : 15px;
+	 		body {
+	 			margin: 0;
+	 			height: 100vh;
+	 			width: 100vw; 
+	 		}
+
+	 		.header {
+	 			background-color: #efefef;
+	 			padding: 15px 15px;
+	 			margin: 0;
+	 			border-bottom: 2px solid #303030; 
+	 			outline: none;
+	 		}
+
+	 		.header button {
+	 			font-size: 18px;
+	 			border: none; 
+	 			border-radius: 2px;
+	 			cursor: pointer;
+	 			background-color: #ccc;
+	 			padding: 6px 12px;
+	 			outline: none;
+	 		}
+
+	 		.container {
+	 			padding: 15px;
+	 		}
+
+	 		.pixel {
+			    font-size : 24px;
 			    color: #fff;
+			    margin: 0;
 			    display: inline-block;
 			    background-color: #be0000;
-			    height: 100px;
-			    width: 100px;
+			    height: 200px;
+			    width: 200px;
+			    line-height: 200px;
+			    text-align: center;
 			}
 
-			#vw-vh {
-			    font-size : 0.78vw; /* To convert from pixels to vw, divide by 19.2 */ 
+			.vp {
+			    font-size : 1.25vw; /* To convert from pixels to vw, divide by 19.2 */ 
+			    margin: 0;
 			    display: inline-block;
 			    background-color: blue;
 			    color: #fff;
-			    height: 9.25vh;
-			    width: 5.20vw;
-			} 
-	 	</style>
+			    height: 10.20vh; /* To convert from pixels to vh, divide by 9.8 */
+			    width: 10.41vw; /* To convert from pixels to vw, divide by 19.2 */
+			    line-height: 10.20vh;
+			    text-align: center;
+			}   
+	 	</style> 
+	 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	 	<script type="text/javascript">
+	 		$(document).ready(function(){
+			  $("#px-btn").click(function(){ 
+			    $('.vh-vw-ar-test').hide();
+			    $('.px-vp-comp').show();
+			  });
+
+			  $("#vp-btn").click(function(){ 
+			    $('.px-vp-comp').hide();
+			    $('.vh-vw-ar-test').show();
+			  });
+			});
+	 	</script>
 	</head>
 	<body>
-		<div>
-		    <div id="pixel"> PX </div>
-		    <div id="vw-vh"> VW/VH </div> 
-		   	<br>
-		   	<div id="vw-vh"> VW/VH </div> 
-		   	<div id="pixel"> PX </div>
+		<div class="header"> 
+			<button id="px-btn"> Compare PX / VH,VW </button>
+			<button id="vp-btn"> Test VH,VW aspect ratio </button>
+		</div> 
+
+		<div class="container">
+			<div class="px-vp-comp">
+			    <div class="pixel"> PX </div>
+			    <div class="vp"> VW/VH </div> 
+			   	<br>
+			   	<div class="vp"> VW/VH </div> 
+			   	<div class="pixel"> PX </div>
+			</div>
+
+			<div class="vh-vw-ar-test" style="display:none;">
+				To be updated..
+				<!-- <div class="parent">
+					I'm Parent
+					<div class="child">
+						I'm Child
+						<div class="sub-child">
+							I'm sub child
+						</div>
+					</div>
+				</div> -->
+			</div>
 		</div> 
 	</body>
-</<html> 
+</html> 
